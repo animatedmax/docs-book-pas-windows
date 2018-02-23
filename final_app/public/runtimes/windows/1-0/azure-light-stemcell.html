@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Always force latest IE rendering engine or request Chrome Frame -->
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400italic,400,600' rel='stylesheet' type='text/css'>
+  <!-- Use title if it's in the page YAML frontmatter -->
+  <title>
+      Deploying the Azure Light Stemcell |
+    Pivotal Docs
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/stylesheets/all.css" rel="stylesheet" media="screen, print" />
+  <link href="/stylesheets/print.css" rel="stylesheet" media="print" />
+  <link href='/images/favicon.ico' rel='shortcut icon'>
+
+  <script src="/javascripts/all.js"></script>
+  
+<script type="text/javascript">
+  if (window.location.host === 'docs.pivotal.io') {
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_setDomainName', '']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  }
+</script>
+
+<script type="text/javascript">
+  var blackList = ['acceptance'];
+
+  blackList.forEach(function(blackListedEnv) {
+    if (document.URL.indexOf(blackListedEnv) > -1 && blackListedEnv != "") {
+      $('head').append('<meta name="hashtag" content="PivotalMoment">');
+    }
+  });
+</script>
+
+<!-- CrazyEgg Tracking Script -->
+  <script type="text/javascript">
+  setTimeout(function(){var a=document.createElement("script");
+  var b=document.getElementsByTagName("script")[0];
+  a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0055/2990.js?"+Math.floor(new Date().getTime()/3600000);
+  a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+  </script>
+
+<!-- Munchkin Marketo Script -->
+<script type="text/javascript">
+  (function() {
+    var didInit = false;
+
+    function initMunchkin() {
+      if (didInit === false) {
+        didInit = true;
+        Munchkin.init('625-IUJ-009');
+      }
+    }
+
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = document.location.protocol + '//munchkin.marketo.net/munchkin.js';
+    s.onreadystatechange = function() {
+      if (this.readyState == 'complete' || this.readyState == 'loaded') {
+        initMunchkin();
+      }
+    };
+    s.onload = initMunchkin;
+    document.getElementsByTagName('head')[0].appendChild(s);
+  })();
+</script>
+
+</head>
+
+<body class="runtimes runtimes_windows runtimes_windows_1-0 runtimes_windows_1-0_azure-light-stemcell has-subnav">
+
+<div class="viewport">
+  <div class='wrap'>
+    <script type="text/javascript">
+      document.domain = "";
+    </script>
+
+      <header class="global-header header header-layout js-bar-links">
+    <a class="pivotal-logo" href="/">
+    </a>
+    <a href="/" class="global-header-title">
+      <span class="title-deemph">Pivotal</span> Documentation
+    </a>
+    <div class="btn-menu" data-behavior="MenuMobile"></div>
+    <div class="header-links">
+      <div class="header-item">
+        <a href=""></a>
+      </div>
+      <div class="header-item">
+        <a href="http://support.pivotal.io" target="_blank">Support</a>
+      </div>
+
+      <div class="header-item embedded-searchbar">
+          <form method="get" action="/search">
+            <input name="q" placeholder="Search PAS for Windows v1.0" class="search-box" />
+              <input type="hidden" name="product_name" value="PAS for Windows" />
+              <input type="hidden" name="product_version" value="1.0"/>
+          </form>
+      </div>
+      
+    </div>
+  </header>
+
+
+
+    <div class="container">
+
+      <!--googleoff: index-->
+      <div id="sub-nav" class="js-sidenav nav-container" role="navigation">
+  <a class="sidenav-title" data-behavior="SubMenuMobile">
+    Doc Index
+  </a>
+  <div class="nav-content">
+    <ul>
+
+      <li class="has_submenu">
+        <a href="/runtimes/windows/1-0/index.html">PAS for Windows</a>
+      </li>        
+    </ul>
+  </div>
+</div><!--end of sub-nav-->
+      <!--googleon: index-->
+
+      <main class="content content-layout" id="js-content" role="main">
+        <a id="top"></a>
+          <div class="local-header title-container">
+    <div class="local-header version-info">
+      LATEST VERSION: v1.0 - <a href="">CHANGELOG</a>
+    </div>
+    <div class="local-header local-title clearfix">
+      <img src="/images/cloud_rings.png">
+      <span class="local-header-title">PAS for Windows
+      </span>
+      <span class="local-header local-version header-dropdown">
+        <a class="local-header header-dropdown-link">v1.0</a>
+        <span class="local-header header-dropdown-content">
+          <ul>
+                <li>
+                    <a href="https://docs.pivotal.io/runtimes/windows/0-8/azure-light-stemcell.html">v0.8</a>
+                </li>
+          </ul>
+        </span>
+      </span>
+
+      <!-- search was here -->
+    </div>
+    <div class="local-header local-header-links">
+    </div>
+  </div>
+
+          <h1 class="title-container" >
+    Deploying the Azure Light Stemcell
+  </h1>
+
+          <div id="js-quick-links" >
+            <div class="quick-links"><ul>
+<li><a href="#download">Download the Azure Light Stemcell</a></li>
+<li><a href="#use">Enable the Azure Light Stemcell</a></li>
+<li><a href="#req">Configure Resources</a></li>
+</ul></div>
+          </div>
+        <div class="to-top" id="js-to-top">
+          <a href="#top" title="back to top"></a>
+        </div>
+        <p><strong></strong></p>
+
+<p>This topic explains how to download and use the Azure light stemcell. For more information about <em>light stemcells</em>, see the <a href="/runtimes/windows/1-0/about-windows-stemcells.html#light-stemcells">Light Stemcells</a> section of the <em>Using Windows Stemcells</em> topic.</p>
+
+<h2 id="-download-the-azure-light-stemcell"><a id="download"></a> Download the Azure Light Stemcell</h2>
+
+<p>To download the Azure light stemcell, perform the following steps:</p>
+
+<ol>
+<li>Navigate to <a href="https://network.pivotal.io/products/stemcells-windows-server">Pivotal Network</a>.</li>
+<li>Select <strong>Azure Light Stemcell for Windows 2012R2 Server</strong> from the <strong>Release Download Files</strong> section of the Stemcells for PCF (Windows) page.</li>
+</ol>
+
+<p>To start using the Azure light stemcell, perform the steps in the <a href="#use">Enable the Azure Light Stemcell</a> and <a href="#req">Configure Resources</a> sections.</p>
+
+<h2 id="-enable-the-azure-light-stemcell"><a id="use"></a> Enable the Azure Light Stemcell</h2>
+
+<p>To use the Azure light stemcell, you must accept the corresponding license agreement and enable the stemcell for your non-trial Azure subscription through the Azure marketplace as follows:</p>
+
+<ol>
+<li>Navigate to <a href="https://portal.azure.com">https://portal.azure.com</a> and log in.</li>
+<li>From the options on the left side of the page, click <strong>+ New</strong>.</li>
+<li>In the <strong>Search the marketplace</strong> bar, search for <strong>BOSH Azure Windows Stemcell</strong>.</li>
+<li>Select <strong>BOSH Azure Windows Stemcell</strong> from your search results. A description of the BOSH Azure Windows Stemcell appears.</li>
+<li>Below the description, at the bottom of the page, click the blue banner that reads <strong>Want to deploy programmatically? Get started ➔</strong>.</li>
+<li>Review the Terms of Use.</li>
+<li>Under <strong>Choose the subscriptions</strong>, click <strong>Enable</strong> for each Azure subscription with which you want to use the stemcell.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+
+<h2 id="configure-resources"><a id="req"></a>Configure Resources</h2>
+
+<p>When you deploy or upgrade the PAS for Windows 2012R2 tile on Azure, configure the resources of BOSH Director and PAS for Windows 2012R2 as follows:</p>
+
+<ol>
+<li>On the Ops Manager Installation Dashboard, select <strong>PAS for Windows 2012R2</strong>.</li>
+<li>In the <strong>Settings</strong> tab, select <strong>Resource Config</strong>.</li>
+<li>In the <strong>VM Type</strong> field, ensure that <strong>Windows Diego Cell</strong> has a disk size of 128&nbsp;GB or larger.</li>
+<li>Ensure that <strong>Install HWC Buildpack Errand</strong> has a VM disk size of 128&nbsp;GB or larger.
+<img src="images/tile-resource-config.png" alt="Tile resource config" /></li>
+<li>Navigate to the <strong>BOSH Director</strong>.</li>
+<li>In the <strong>Settings</strong> tab, select <strong>Resource Config</strong>.</li>
+<li>In the <strong>VM Type</strong> field, ensure that the Ops Manager compilation VM has an ephemeral disk of 128&nbsp;GB or larger.
+<img src="images/ops-man-resources.png" alt="Ops man resources" /></li>
+</ol>
+
+<p>For information about how to deploy and configure the PAS for Windows 2012R2 tile, see <a href="/runtimes/windows/1-0/deploy-windows.html">Deploying PAS for Windows 2012R2</a>.</p>
+
+        <div><a id='repo-link' href='http://github.com/pivotal-cf/docs-pcf-windows2012r2/tree/master/docs-content/azure-light-stemcell.html.md.erb'>Create a pull request or raise an issue on the source for this page in GitHub</a></div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+<div id="scrim"></div>
+
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+  <a href='https://pivotal.io/privacy-policy'>Privacy Policy</a> | 
+  <a href='https://pivotal.io/terms-of-use'>Terms of Use</a><br/>
+  <a href='/'>Pivotal Documentation</a>
+  &copy; 2018 <a href='https://pivotal.io'>Pivotal Software</a>, Inc. All Rights Reserved.
+</div>
+<div class="support">
+  Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+</div>
+
+  </footer>
+</div><!--end of container-->
+
+</body>
+</html>

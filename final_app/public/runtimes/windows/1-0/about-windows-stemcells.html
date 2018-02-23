@@ -1,0 +1,274 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Always force latest IE rendering engine or request Chrome Frame -->
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400italic,400,600' rel='stylesheet' type='text/css'>
+  <!-- Use title if it's in the page YAML frontmatter -->
+  <title>
+      Using Windows Stemcells |
+    Pivotal Docs
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/stylesheets/all.css" rel="stylesheet" media="screen, print" />
+  <link href="/stylesheets/print.css" rel="stylesheet" media="print" />
+  <link href='/images/favicon.ico' rel='shortcut icon'>
+
+  <script src="/javascripts/all.js"></script>
+  
+<script type="text/javascript">
+  if (window.location.host === 'docs.pivotal.io') {
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_setDomainName', '']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  }
+</script>
+
+<script type="text/javascript">
+  var blackList = ['acceptance'];
+
+  blackList.forEach(function(blackListedEnv) {
+    if (document.URL.indexOf(blackListedEnv) > -1 && blackListedEnv != "") {
+      $('head').append('<meta name="hashtag" content="PivotalMoment">');
+    }
+  });
+</script>
+
+<!-- CrazyEgg Tracking Script -->
+  <script type="text/javascript">
+  setTimeout(function(){var a=document.createElement("script");
+  var b=document.getElementsByTagName("script")[0];
+  a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0055/2990.js?"+Math.floor(new Date().getTime()/3600000);
+  a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+  </script>
+
+<!-- Munchkin Marketo Script -->
+<script type="text/javascript">
+  (function() {
+    var didInit = false;
+
+    function initMunchkin() {
+      if (didInit === false) {
+        didInit = true;
+        Munchkin.init('625-IUJ-009');
+      }
+    }
+
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = document.location.protocol + '//munchkin.marketo.net/munchkin.js';
+    s.onreadystatechange = function() {
+      if (this.readyState == 'complete' || this.readyState == 'loaded') {
+        initMunchkin();
+      }
+    };
+    s.onload = initMunchkin;
+    document.getElementsByTagName('head')[0].appendChild(s);
+  })();
+</script>
+
+</head>
+
+<body class="runtimes runtimes_windows runtimes_windows_1-0 runtimes_windows_1-0_about-windows-stemcells has-subnav">
+
+<div class="viewport">
+  <div class='wrap'>
+    <script type="text/javascript">
+      document.domain = "";
+    </script>
+
+      <header class="global-header header header-layout js-bar-links">
+    <a class="pivotal-logo" href="/">
+    </a>
+    <a href="/" class="global-header-title">
+      <span class="title-deemph">Pivotal</span> Documentation
+    </a>
+    <div class="btn-menu" data-behavior="MenuMobile"></div>
+    <div class="header-links">
+      <div class="header-item">
+        <a href=""></a>
+      </div>
+      <div class="header-item">
+        <a href="http://support.pivotal.io" target="_blank">Support</a>
+      </div>
+
+      <div class="header-item embedded-searchbar">
+          <form method="get" action="/search">
+            <input name="q" placeholder="Search PAS for Windows v1.0" class="search-box" />
+              <input type="hidden" name="product_name" value="PAS for Windows" />
+              <input type="hidden" name="product_version" value="1.0"/>
+          </form>
+      </div>
+      
+    </div>
+  </header>
+
+
+
+    <div class="container">
+
+      <!--googleoff: index-->
+      <div id="sub-nav" class="js-sidenav nav-container" role="navigation">
+  <a class="sidenav-title" data-behavior="SubMenuMobile">
+    Doc Index
+  </a>
+  <div class="nav-content">
+    <ul>
+
+      <li class="has_submenu">
+        <a href="/runtimes/windows/1-0/index.html">PAS for Windows</a>
+      </li>        
+    </ul>
+  </div>
+</div><!--end of sub-nav-->
+      <!--googleon: index-->
+
+      <main class="content content-layout" id="js-content" role="main">
+        <a id="top"></a>
+          <div class="local-header title-container">
+    <div class="local-header version-info">
+      LATEST VERSION: v1.0 - <a href="">CHANGELOG</a>
+    </div>
+    <div class="local-header local-title clearfix">
+      <img src="/images/cloud_rings.png">
+      <span class="local-header-title">PAS for Windows
+      </span>
+      <span class="local-header local-version header-dropdown">
+        <a class="local-header header-dropdown-link">v1.0</a>
+        <span class="local-header header-dropdown-content">
+          <ul>
+                <li>
+                    <a href="https://docs.pivotal.io/runtimes/windows/0-8/about-windows-stemcells.html">v0.8</a>
+                </li>
+          </ul>
+        </span>
+      </span>
+
+      <!-- search was here -->
+    </div>
+    <div class="local-header local-header-links">
+    </div>
+  </div>
+
+          <h1 class="title-container" >
+    Using Windows Stemcells
+  </h1>
+
+          <div id="js-quick-links" >
+            <div class="quick-links"><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#sizing">Root Disk Sizing</a></li>
+<li><a href="#light-stemcells">Light Stemcells</a></li>
+<li><a href="#stemcell-builds">Stemcell Builds</a></li>
+</ul></div>
+          </div>
+        <div class="to-top" id="js-to-top">
+          <a href="#top" title="back to top"></a>
+        </div>
+        <p><strong></strong></p>
+
+<h2 id="-overview"><a id="overview"></a> Overview</h2>
+
+<p>A <em>stemcell</em> is a customized operating system image containing the filesystem for BOSH-managed virtual machines. When deployed, it includes a process, the <em>BOSH Agent</em>, which is pre-configured to communicate with the orchestrating VM, the <em>BOSH Director</em>.
+The BOSH Agent is responsible for executing and monitoring jobs on the VM.</p>
+
+<p>PAS for Windows 2012R2 deployments currently use a stemcell based on Windows Server 2012 R2.</p>
+
+<h2 id="-root-disk-sizing"><a id="sizing"></a> Root Disk Sizing</h2>
+
+<p>The size of the stemcell&rsquo;s root disk determines the minimum root disk size of any Windows VM that the BOSH Director can create from that stemcell. The relationship between a stemcell&rsquo;s disk size and the root disk size of the Windows cells depends on your IaaS as shown in the table below.</p>
+
+<table id='disk-sizes' border="1" class="nice" >
+  <tr>
+    <th>IaaS</th>
+    <th>Stemcell root disk size</th>
+    <th>Possible root disk sizes for Windows cells</th>
+  </tr>
+  <tr>
+    <th>Azure</th>
+    <td>127 GB</td>
+    <td>127 GB</td>
+  </tr>
+  <tr>
+    <th>AWS</th>
+    <td>30 GB</td>
+    <td>30 GB or larger (for stemcell 1200.9 and later)</td>
+  </tr>
+  <tr>
+    <th>GCP</th>
+    <td>50 GB</td>
+    <td>50 GB or larger</td>
+  </tr>
+  <tr>
+    <th>vSphere</th>
+    <td>Recommended 128 GB+<sup>*</sup></td>
+    <td>Same as stemcell minimum root disk size</td>
+  </tr>
+</table>
+
+<p><sup>*</sup>Because you create your own stemcell on vSphere, you can control its root disk size. See <a href="/runtimes/windows/1-0/vsphere-stemcell-build.html">Creating a vSphere Stemcell Manually</a> for more information.</p>
+
+<p>In the PAS for Windows 2012R2 tile &gt; <strong>Resource Config</strong> pane, the VM types that you can choose from reflect the disk size constraints in the table above.</p>
+
+<h2 id="-light-stemcells"><a id="light-stemcells"></a> Light Stemcells</h2>
+
+<p><em>Light stemcells</em> are metadata files that enable you to deploy VMs without uploading the full operating system manually. These stemcells reference images of Windows Server 2012 R2 hosted on public IaaSes.</p>
+
+<p>Light stemcells are available for Microsoft Azure, AWS, and GCP, which typically bill a surcharge for the associated Windows licensing cost. See the documentation on those IaaSes for details.</p>
+
+<p>Below is IaaS-specific documentation for light stemcells you can use with the PAS for Windows 2012R2 tile:</p>
+
+<ul>
+<li><a href="./azure-light-stemcell.html" class="subnav">Deploying the Azure Light Stemcell</a></li>
+</ul>
+
+<h2 id="-stemcell-builds"><a id="stemcell-builds"></a> Stemcell Builds</h2>
+
+<p>Because of the constraints placed on the distribution of Windows OS by Microsoft&rsquo;s licensing terms, operators must build stemcells for on-premise deployments from OS disk images (e.g. ISO files) licensed to them directly from Microsoft. This typically involves starting a Windows virtual machine, installing the BOSH agent and associated software, then exporting its disk image and converting it to a stemcell format.</p>
+
+<p>Below is IaaS-specific documentation for building stemcells for the PAS for Windows 2012R2 tile:</p>
+
+<ul>
+<li><a href="./vsphere-stemcell-build.html" class="subnav"> vSphere Stemcell Build</a></li>
+</ul>
+
+        <div><a id='repo-link' href='http://github.com/pivotal-cf/docs-pcf-windows2012r2/tree/master/docs-content/about-windows-stemcells.html.md.erb'>Create a pull request or raise an issue on the source for this page in GitHub</a></div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+<div id="scrim"></div>
+
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+  <a href='https://pivotal.io/privacy-policy'>Privacy Policy</a> | 
+  <a href='https://pivotal.io/terms-of-use'>Terms of Use</a><br/>
+  <a href='/'>Pivotal Documentation</a>
+  &copy; 2018 <a href='https://pivotal.io'>Pivotal Software</a>, Inc. All Rights Reserved.
+</div>
+<div class="support">
+  Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+</div>
+
+  </footer>
+</div><!--end of container-->
+
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Always force latest IE rendering engine or request Chrome Frame -->
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400italic,400,600' rel='stylesheet' type='text/css'>
+  <!-- Use title if it's in the page YAML frontmatter -->
+  <title>
+      Deploying .NET Apps to Windows Cells |
+    Pivotal Docs
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/stylesheets/all.css" rel="stylesheet" media="screen, print" />
+  <link href="/stylesheets/print.css" rel="stylesheet" media="print" />
+  <link href='/images/favicon.ico' rel='shortcut icon'>
+
+  <script src="/javascripts/all.js"></script>
+  
+<script type="text/javascript">
+  if (window.location.host === 'docs.pivotal.io') {
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_setDomainName', '']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  }
+</script>
+
+<script type="text/javascript">
+  var blackList = ['acceptance'];
+
+  blackList.forEach(function(blackListedEnv) {
+    if (document.URL.indexOf(blackListedEnv) > -1 && blackListedEnv != "") {
+      $('head').append('<meta name="hashtag" content="PivotalMoment">');
+    }
+  });
+</script>
+
+<!-- CrazyEgg Tracking Script -->
+  <script type="text/javascript">
+  setTimeout(function(){var a=document.createElement("script");
+  var b=document.getElementsByTagName("script")[0];
+  a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0055/2990.js?"+Math.floor(new Date().getTime()/3600000);
+  a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+  </script>
+
+<!-- Munchkin Marketo Script -->
+<script type="text/javascript">
+  (function() {
+    var didInit = false;
+
+    function initMunchkin() {
+      if (didInit === false) {
+        didInit = true;
+        Munchkin.init('625-IUJ-009');
+      }
+    }
+
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = document.location.protocol + '//munchkin.marketo.net/munchkin.js';
+    s.onreadystatechange = function() {
+      if (this.readyState == 'complete' || this.readyState == 'loaded') {
+        initMunchkin();
+      }
+    };
+    s.onload = initMunchkin;
+    document.getElementsByTagName('head')[0].appendChild(s);
+  })();
+</script>
+
+</head>
+
+<body class="runtimes runtimes_windows runtimes_windows_1-0 runtimes_windows_1-0_push-windows-apps has-subnav">
+
+<div class="viewport">
+  <div class='wrap'>
+    <script type="text/javascript">
+      document.domain = "";
+    </script>
+
+      <header class="global-header header header-layout js-bar-links">
+    <a class="pivotal-logo" href="/">
+    </a>
+    <a href="/" class="global-header-title">
+      <span class="title-deemph">Pivotal</span> Documentation
+    </a>
+    <div class="btn-menu" data-behavior="MenuMobile"></div>
+    <div class="header-links">
+      <div class="header-item">
+        <a href=""></a>
+      </div>
+      <div class="header-item">
+        <a href="http://support.pivotal.io" target="_blank">Support</a>
+      </div>
+
+      <div class="header-item embedded-searchbar">
+          <form method="get" action="/search">
+            <input name="q" placeholder="Search PAS for Windows v1.0" class="search-box" />
+              <input type="hidden" name="product_name" value="PAS for Windows" />
+              <input type="hidden" name="product_version" value="1.0"/>
+          </form>
+      </div>
+      
+    </div>
+  </header>
+
+
+
+    <div class="container">
+
+      <!--googleoff: index-->
+      <div id="sub-nav" class="js-sidenav nav-container" role="navigation">
+  <a class="sidenav-title" data-behavior="SubMenuMobile">
+    Doc Index
+  </a>
+  <div class="nav-content">
+    <ul>
+
+      <li class="has_submenu">
+        <a href="/runtimes/windows/1-0/index.html">PAS for Windows</a>
+      </li>        
+    </ul>
+  </div>
+</div><!--end of sub-nav-->
+      <!--googleon: index-->
+
+      <main class="content content-layout" id="js-content" role="main">
+        <a id="top"></a>
+          <div class="local-header title-container">
+    <div class="local-header version-info">
+      LATEST VERSION: v1.0 - <a href="">CHANGELOG</a>
+    </div>
+    <div class="local-header local-title clearfix">
+      <img src="/images/cloud_rings.png">
+      <span class="local-header-title">PAS for Windows
+      </span>
+      <span class="local-header local-version header-dropdown">
+        <a class="local-header header-dropdown-link">v1.0</a>
+        <span class="local-header header-dropdown-content">
+          <ul>
+                <li>
+                    <a href="https://docs.pivotal.io/runtimes/windows/0-8/push-windows-apps.html">v0.8</a>
+                </li>
+          </ul>
+        </span>
+      </span>
+
+      <!-- search was here -->
+    </div>
+    <div class="local-header local-header-links">
+    </div>
+  </div>
+
+          <h1 class="title-container" >
+    Deploying .NET Apps to Windows Cells
+  </h1>
+
+          <div id="js-quick-links" >
+            <div class="quick-links"><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#push">Push a .NET App</a></li>
+<li><a href="#self-hosted">Push a Self-Hosted App</a></li>
+<li>
+<a href="#soap">Push a SOAP Service</a><ul>
+<li><a href="#push-soap">Step 1: Deploy Your Web Service</a></li>
+<li><a href="#correct-wsdl">Step 2: Modify the WSDL File</a></li>
+</ul>
+</li>
+<li><a href="#troubleshoot">Troubleshoot App Errors</a></li>
+</ul></div>
+          </div>
+        <div class="to-top" id="js-to-top">
+          <a href="#top" title="back to top"></a>
+        </div>
+        <p><strong></strong></p>
+
+<p>This topic describes how to push .NET apps to Windows cells.</p>
+
+<p>For how to develop .NET apps to run on PAS for Windows 2012R2 see the <a href="https://dotnet-cookbook.cfapps.io/intro/">.NET Cookbook</a>. For how to develop .NET microservices for .NET apps using Steeltoe, see the <a href="http://steeltoe.io/docs/">Steeltoe documentation</a>.</p>
+
+<h2 id="-overview"><a id='overview'></a> Overview</h2>
+
+<p>After operators install and configure the PAS for Windows 2012R2 tile, developers can push .NET apps to the Windows cell. For documentation about installing the PAS for Windows 2012R2 tile, see the <a href="/runtimes/windows/1-0/deploy-windows.html">Deploying PAS for Windows 2012R2</a> topic. Developers can push both <a href="http://owin.org/">OWIN</a> and non-OWIN apps, and can push apps that are served by <a href="#push">Hostable Web Core</a> or <a href="#self-hosted">self-hosted</a>.</p>
+
+<p>Operators must also install the Cloud Foundry Command Line Interface (cf CLI) to run the commands on this topic. For information about installing the cf CLI, see the <a href="https://docs.pivotal.io/pivotalcf/2-1/cf-cli/install-go-cli.html">Installing the cf CLI</a> topic.</p>
+
+<p>If you have upgraded to PAS for Windows 2012R2 1.11 and have apps that you want to migrate, see the <a href="/runtimes/windows/1-0/upgrade-windows.html">Upgrading Windows Cells</a> topic.</p>
+
+<h2 id="-push-a-.net-app"><a id='push'></a> Push a .NET App</h2>
+
+<p>By default, PCF serves .NET apps with Hostable Web Core (HWC). HWC is a lighter version of the Internet Information Services (IIS) server that contains the core IIS functionality.</p>
+
+<p>Perform the following steps to push a .NET app to a Windows cell:</p>
+
+<ol>
+<li><p>Run <code>cf api api.YOUR-SYSTEM-DOMAIN</code> to target the Cloud Controller of your PCF deployment:
+<pre class="terminal">
+$ cf api api.YOUR-SYSTEM-DOMAIN
+</pre></p></li>
+<li><p>Run one of the following commands to deploy your .NET app, replacing <code>APP-NAME</code> with the name of your app.
+<br><br></p>
+
+<ul>
+<li>If you want to deploy a .NET Framework app, run <code>cf push APP-NAME -s windows2012R2 -b hwc_buildpack</code>:
+<pre class="terminal">
+$ cf push APP-NAME -s windows2012R2 -b hwc_buildpack
+</pre></li>
+<li>If you want to deploy an app with <code>.bat</code> or <code>.exe</code> files, run <code>cf push -s windows2012R2 -b binary_buildpack</code>:
+<pre class="terminal">$ cf push -s windows2012R2 -b binary_buildpack</pre>
+<br>
+The <code>-s windows2012R2</code> option instructs PCF to run the app in the Windows cell. If you are not pushing your app from its directory, use the <code>-p</code> option and specify the path to the directory that contains the app.</li>
+</ul></li>
+<li><p>Wait for your app to stage and start. If you see an error message, refer to the <a href="#troubleshoot">Troubleshoot App Errors</a> section of this topic.</p></li>
+</ol>
+
+<h2 id="-push-a-self-hosted-app"><a id='self-hosted'></a> Push a Self-Hosted App</h2>
+
+<p>Developers can choose to push a self-hosted app instead of using Hostable Web Core. Self-hosted apps combine server code with the app code.</p>
+
+<p>Perform the following steps to push a self-hosted app:</p>
+
+<ol>
+<li><p>Run <code>cf api api.YOUR-SYSTEM-DOMAIN</code> to target the Cloud Controller of your PCF deployment:
+<pre class="terminal">
+$ cf api api.YOUR-SYSTEM-DOMAIN
+</pre></p></li>
+<li><p>Run <code>cf push APP-NAME -s windows2012R2 -b binary_buildpack -c PATH-TO-BINARY</code> to push your .NET app from the app root. Replace <code>APP-NAME</code> with the name of your app and <code>PATH-TO-BINARY</code> with the path to your executable.</p>
+
+<pre class="terminal">
+$ cf push APP-NAME -s windows2012R2 -b binary_buildpack -c PATH-TO-BINARY
+</pre></li>
+<li><p>Wait for your app to stage and start. If you see an error message, refer to the <a href="#troubleshoot">Troubleshoot App Errors</a> section of this topic.</p></li>
+</ol>
+
+<h2 id="-push-a-soap-service"><a id='soap'></a> Push a SOAP Service</h2>
+
+<p>Developers can push Simple Object Access Protocol (SOAP) web services to their PCF deployment by following the procedures in the sections below.</p>
+
+<h3 id="-step-1:-deploy-your-web-service"><a id='push-soap'></a> Step 1: Deploy Your Web Service</h3>
+
+<p>Perform the following steps to deploy a SOAP web service:</p>
+
+<ol>
+<li>Develop the service as an ASMX web service in Microsoft Visual Studio.</li>
+<li>Publish the service to your local file system.</li>
+<li><p>Run <code>cf push SERVICE-NAME -s windows2012R2 -b hwc_buildpack -u none</code> to push your service from the directory containing the published web service. Replace <code>SERVICE-NAME</code> with the name of your service:
+<pre class="terminal">
+$ cf push SERVICE-NAME -s windows2012R2 -b hwc_buildpack -u none
+</pre>
+<br>
+The push command must include the <code>-s</code> flag to specify the stack as <code>windows2012R2</code>, which instructs PCF to run the app in the Windows cell.
+<br><br>
+The push command can include the following optional flags:</p>
+
+<ul>
+<li>If you are not pushing your service from the directory containing the published web service, use the <code>-p</code> flag to specify the path to the directory that contains the published web service.</li>
+<li>If you do not have a route serving <code>/</code>, use the <code>-u none</code> flag to disable the health check.</li>
+</ul></li>
+<li><p>Locate the section of the terminal output that displays the URL of the web service:</p>
+
+<pre class='terminal'>
+requested state: started
+instances: 1/1
+usage: 1G x 1 instances
+urls: YOUR-WEB-SERVICE.YOUR-DOMAIN
+last uploaded: Thu Nov 17 19:18:19 UTC 2016
+stack: windows2012R2
+buildpack: hwc_buildpack
+</pre></li>
+</ol>
+
+<h3 id="-step-2:-modify-the-wsdl-file"><a id='correct-wsdl'></a> Step 2: Modify the WSDL File</h3>
+
+<p>Your SOAP web service is now deployed on PCF, but the service&rsquo;s WSDL file contains the incorrect port information. Before an application can consume your web service, either you or the application developer must modify the WSDL file.</p>
+
+<p>Examine the following portion of an example WSDL file:</p>
+<pre class="highlight plaintext"><code>- &lt;wsdl:service name="WebService1"&gt;
+  - &lt;wsdl:port name="WebService1Soap" binding="tns:WebService1Soap"&gt;
+      &lt;soap:address location="http://webservice.example.com:62492/WebService1.asmx"/&gt;
+    &lt;/wsdl:port&gt;
+  - &lt;wsdl:port name="WebService1Soap12" binding="tns:WebService1Soap12"&gt;
+      &lt;soap12:address location="http://webservice.example.com:62492/WebService1.asmx"/&gt;
+    &lt;/wsdl:port&gt;
+- &lt;/wsdl:service&gt;
+</code></pre>
+
+<p>The WSDL file provides the port number for the SOAP web service as <code>62492</code>. This is the port that the web service listens on in the <a href="https://docs.pivotal.io/pivotalcf/2-1/concepts/container-security.html#mechanics">Garden container</a>, but external applications cannot access the service on this port. Instead, external applications must use port <code>80</code>, and the <a href="https://docs.pivotal.io/pivotalcf/2-1/concepts/architecture/router.html">Gorouter</a> routes requests to the web service in the container.</p>
+
+<p>The URL of the web service in the WSDL file must be modified to remove <code>62492</code>. With no port number, the URL defaults to port <code>80</code>. In the example above, the modified URL would be <code>http://webservice.example.com/WebService1.asmx</code>.</p>
+
+<p>SOAP web service developers can resolve this problem in one of two ways:</p>
+
+<ul>
+<li><p>Modify the WSDL file by following the instructions in <a href="https://blogs.msdn.microsoft.com/kaevans/2005/11/16/modify-a-web-services-wsdl-using-a-soapextensionreflector/">Modify a Web Service’s WSDL Using a SoapExtensionReflector</a> from the Microsoft Developers Network.</p></li>
+<li><p>Instruct the developers of external applications that consume the web service to perform the steps in the <a href="#consume">Consume the SOAP Web Service</a> section of this topic.</p></li>
+</ul>
+
+<h4 id="consume-the-soap-web-service"><a id='consume'></a>Consume the SOAP Web Service</h4>
+
+<p>Developers of external applications that consume the SOAP web service can perform the following steps to use a modified version of the WSDL file:</p>
+
+<ol>
+<li><p>In a browser, navigate to the WSDL file of the web service.
+<br><br>
+You can reach the WSDL of your web service by constructing the URL as follows:
+<code>YOUR-WEB-SERVICE.YOUR-DOMAIN/ASMX-FILE.asmx?wsdl</code>
+<br><br>
+See the following URL as an example:
+<code>https://webservice.example.com/WebService1.asmx?wsdl</code></p></li>
+<li><p>Download the WSDL file to your local machine.</p></li>
+<li><p>Edit the WSDL file to eliminate the container port, as described in the <a href="#correct-wsdl">Modify the WSDL File</a> section of this topic.</p></li>
+<li><p>In Microsoft Visual Studio, right-click on your application in the <strong>Solution Explorer</strong> and select <strong>Add</strong> &gt; <strong>Service Reference</strong>.</p></li>
+<li><p>Under <strong>Address</strong>, enter the local path to the modified WSDL file. For example, <code>C:\Users\example\wsdl.xml</code>.</p></li>
+<li><p>Click <strong>OK</strong>. Microsoft Visual Studio generates a client from the WSDL file that you can use in your codebase.</p></li>
+</ol>
+
+<h2 id="-troubleshoot-app-errors"><a id='troubleshoot'></a> Troubleshoot App Errors</h2>
+
+<p>If a .NET app fails to start, consult the following list of errors and their possible solutions:</p>
+
+<ul>
+<li><p><code>NoCompatibleCell</code>: Your PCF deployment cannot connect to your Windows cell. See the <a href="/runtimes/windows/1-0/windows-troubleshooting.html">Troubleshooting Windows Cells</a> topic for information about troubleshooting your Windows cell configuration.</p></li>
+<li><p><code>Start unsuccessful</code>: Your app may not contain the required DLL files and dependencies. Ensure that you are pushing from a directory containing your app dependencies, or specify the directory with the <code>-p</code> flag. Your app also may be misconfigured. Ensure that your app directory contains either a valid <code>.exe</code> binary or a valid <code>Web.config</code> file.</p></li>
+</ul>
+
+        <div><a id='repo-link' href='http://github.com/pivotal-cf/docs-pcf-windows2012r2/tree/master/docs-content/push-windows-apps.html.md.erb'>Create a pull request or raise an issue on the source for this page in GitHub</a></div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+<div id="scrim"></div>
+
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+  <a href='https://pivotal.io/privacy-policy'>Privacy Policy</a> | 
+  <a href='https://pivotal.io/terms-of-use'>Terms of Use</a><br/>
+  <a href='/'>Pivotal Documentation</a>
+  &copy; 2018 <a href='https://pivotal.io'>Pivotal Software</a>, Inc. All Rights Reserved.
+</div>
+<div class="support">
+  Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+</div>
+
+  </footer>
+</div><!--end of container-->
+
+</body>
+</html>

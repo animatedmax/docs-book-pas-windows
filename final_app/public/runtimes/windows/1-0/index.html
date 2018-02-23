@@ -1,0 +1,328 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Always force latest IE rendering engine or request Chrome Frame -->
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400italic,400,600' rel='stylesheet' type='text/css'>
+  <!-- Use title if it's in the page YAML frontmatter -->
+  <title>
+      Using PAS for Windows 2012R2 |
+    Pivotal Docs
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/stylesheets/all.css" rel="stylesheet" media="screen, print" />
+  <link href="/stylesheets/print.css" rel="stylesheet" media="print" />
+  <link href='/images/favicon.ico' rel='shortcut icon'>
+
+  <script src="/javascripts/all.js"></script>
+  
+<script type="text/javascript">
+  if (window.location.host === 'docs.pivotal.io') {
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_setDomainName', '']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  }
+</script>
+
+<script type="text/javascript">
+  var blackList = ['acceptance'];
+
+  blackList.forEach(function(blackListedEnv) {
+    if (document.URL.indexOf(blackListedEnv) > -1 && blackListedEnv != "") {
+      $('head').append('<meta name="hashtag" content="PivotalMoment">');
+    }
+  });
+</script>
+
+<!-- CrazyEgg Tracking Script -->
+  <script type="text/javascript">
+  setTimeout(function(){var a=document.createElement("script");
+  var b=document.getElementsByTagName("script")[0];
+  a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0055/2990.js?"+Math.floor(new Date().getTime()/3600000);
+  a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+  </script>
+
+<!-- Munchkin Marketo Script -->
+<script type="text/javascript">
+  (function() {
+    var didInit = false;
+
+    function initMunchkin() {
+      if (didInit === false) {
+        didInit = true;
+        Munchkin.init('625-IUJ-009');
+      }
+    }
+
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = document.location.protocol + '//munchkin.marketo.net/munchkin.js';
+    s.onreadystatechange = function() {
+      if (this.readyState == 'complete' || this.readyState == 'loaded') {
+        initMunchkin();
+      }
+    };
+    s.onload = initMunchkin;
+    document.getElementsByTagName('head')[0].appendChild(s);
+  })();
+</script>
+
+</head>
+
+<body class="runtimes runtimes_windows runtimes_windows_1-0 runtimes_windows_1-0_index has-subnav">
+
+<div class="viewport">
+  <div class='wrap'>
+    <script type="text/javascript">
+      document.domain = "";
+    </script>
+
+      <header class="global-header header header-layout js-bar-links">
+    <a class="pivotal-logo" href="/">
+    </a>
+    <a href="/" class="global-header-title">
+      <span class="title-deemph">Pivotal</span> Documentation
+    </a>
+    <div class="btn-menu" data-behavior="MenuMobile"></div>
+    <div class="header-links">
+      <div class="header-item">
+        <a href=""></a>
+      </div>
+      <div class="header-item">
+        <a href="http://support.pivotal.io" target="_blank">Support</a>
+      </div>
+
+      <div class="header-item embedded-searchbar">
+          <form method="get" action="/search">
+            <input name="q" placeholder="Search PAS for Windows v1.0" class="search-box" />
+              <input type="hidden" name="product_name" value="PAS for Windows" />
+              <input type="hidden" name="product_version" value="1.0"/>
+          </form>
+      </div>
+      
+    </div>
+  </header>
+
+
+
+    <div class="container">
+
+      <!--googleoff: index-->
+      <div id="sub-nav" class="js-sidenav nav-container" role="navigation">
+  <a class="sidenav-title" data-behavior="SubMenuMobile">
+    Doc Index
+  </a>
+  <div class="nav-content">
+    <ul>
+
+      <li class="has_submenu">
+        <a href="/runtimes/windows/1-0/index.html">PAS for Windows</a>
+      </li>        
+    </ul>
+  </div>
+</div><!--end of sub-nav-->
+      <!--googleon: index-->
+
+      <main class="content content-layout" id="js-content" role="main">
+        <a id="top"></a>
+          <div class="local-header title-container">
+    <div class="local-header version-info">
+      LATEST VERSION: v1.0 - <a href="">CHANGELOG</a>
+    </div>
+    <div class="local-header local-title clearfix">
+      <img src="/images/cloud_rings.png">
+      <span class="local-header-title">PAS for Windows
+      </span>
+      <span class="local-header local-version header-dropdown">
+        <a class="local-header header-dropdown-link">v1.0</a>
+        <span class="local-header header-dropdown-content">
+          <ul>
+                <li>
+                    <a href="https://docs.pivotal.io/runtimes/windows/0-8/index.html">v0.8</a>
+                </li>
+          </ul>
+        </span>
+      </span>
+
+      <!-- search was here -->
+    </div>
+    <div class="local-header local-header-links">
+    </div>
+  </div>
+
+          <h1 class="title-container" >
+    Using PAS for Windows 2012R2
+  </h1>
+
+          <div id="js-quick-links" >
+            <div class="quick-links"><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#understand">Understanding PAS for Windows 2012R2</a></li>
+<li><a href="#install">Installing PAS for Windows 2012R2</a></li>
+<li><a href="#managing">Managing Windows Cells</a></li>
+<li><a href="#dev">Developing on Windows Cells</a></li>
+<li><a href="#limitations">Limitations</a></li>
+<li><a href="#issues">Known Issues</a></li>
+</ul></div>
+          </div>
+        <div class="to-top" id="js-to-top">
+          <a href="#top" title="back to top"></a>
+        </div>
+        <p><strong></strong></p>
+
+<p class='note'><strong>Note:</strong> Elastic Runtime has been renamed Pivotal Application Service.</p>
+
+<p>This documentation describes how operators install and manage Windows <a href="https://docs.pivotal.io/pivotalcf/2-1/concepts/architecture/index.html#diego-cell">Diego cells</a> in Pivotal Cloud Foundry (PCF) with PAS for Windows 2012R2 and how developers push .NET Framework applications to Windows cells.</p>
+
+<p>Operators can install PAS for Windows 2012R2 on Microsoft Azure, VMware vSphere, Amazon Web Services (AWS), or Google Cloud Platform (GCP).</p>
+
+<h2 id="overview"><a id='overview'></a>Overview</h2>
+
+<p>Operators who want to enable developers to push .NET Framework applications can deploy Windows-based Diego cells in PCF with the PAS for Windows 2012R2 tile.</p>
+
+<p>Deploying this tile creates a separate BOSH deployment populated with the Garden-Windows BOSH release, which runs on a Windows cell built from a Windows Server 2012R2 stemcell. This lets PCF deploy Windows-based Diego cells in addition to Linux-based Diego cells.</p>
+
+<p>Once the Windows cell is running and after developers build their applications, they can then specify the <code>windows2012R2</code> stack when pushing .NET Framework apps from the command line or PowerShell session. Using the Diego infrastructure, PCF passes the app to the Windows cell in the PAS for Windows 2012R2 deployment. The diagram below illustrates the process.</p>
+
+<p><img src="images/windows-overview.png" alt="Windows overview" /></p>
+
+<h2 id="-requirements"><a id='requirements'></a> Requirements</h2>
+
+<p>When configuring the Windows deployment, the minimum resource requirements for each Windows cell are as follows:</p>
+
+<ul>
+<li>Disk size: 64&nbsp;GB</li>
+<li>Memory: 16&nbsp;GB</li>
+<li>Number of CPUs: 4</li>
+</ul>
+
+<p>By design, PAS for Windows 2012R2 only supports deployments based on Windows Server 2012R2.</p>
+
+<p>Due to Microsoft&rsquo;s licensing requirements, operators must either bring their own licensed copies of Windows Server (for on-premise deployments) or pay the surcharges associated with Windows Server licensing determined by the IaaS provider on Azure, AWS, and GCP.</p>
+
+<h2 id="understanding-pas-for-windows-2012r2"><a id='understand'></a>Understanding PAS for Windows 2012R2</h2>
+
+<ul>
+<li><p><a href="understand-windows.html" class="subnav">Understanding Windows Cells</a></p></li>
+<li><p><a href="windows-security.html" class="subnav">Understanding Stemcell Security</a></p></li>
+</ul>
+
+<h2 id="installing-pas-for-windows-2012r2"><a id='install'></a>Installing PAS for Windows 2012R2</h2>
+
+<ul>
+<li><a href="./about-windows-stemcells.html">Using Windows Stemcells</a></li>
+<li><a href="./deploy-windows.html" class="subnav">Deploying PAS for Windows 2012R2</a></li>
+</ul>
+
+<h2 id="managing-windows-cells"><a id="managing"></a>Managing Windows Cells</h2>
+
+<ul>
+<li><p><a href="./upgrade-windows.html" class="subnav">Upgrading Windows Cells</a></p></li>
+<li><p><a href="./configure-kms.html" class="subnav">Configuring a KMS Host</a></p></li>
+<li><p><a href="./windows-troubleshooting.html" class="subnav">Troubleshooting Windows Cells</a></p></li>
+</ul>
+
+<h2 id="developing-on-windows-cells"><a id='dev'></a>Developing on Windows Cells</h2>
+
+<ul>
+<li><a href="push-windows-apps.html" class="subnav">Deploying .NET Framework Apps to Windows Cells</a></li>
+</ul>
+
+<h2 id="limitations"><a id='limitations'></a>Limitations</h2>
+
+<p>Deployments of Windows Diego Cells with PAS for Windows 2012R2 have the following limitations:</p>
+
+<ul>
+<li><p>Because of the process management characteristics of Windows Server 2012R2, Windows cells can host a maximum of 40 app instances per cell. Operators should take this density constraint into account when planning the sizes of their PAS for Windows 2012R2 deployments, in addition to CPU, disk, and memory needs.</p></li>
+<li><p>The following Cloud Foundry features are not supported by PAS for Windows 2012R2:</p>
+
+<ul>
+<li>Diego SSH, i.e. the <code>cf ssh</code> command. This is due to limitations of the inherent file system isolation characteristics of Windows Server 2012R2.</li>
+<li>Volume services. For mounting SMB shares, developers should access SMB volumes from their applications directly.</li>
+<li>Container-to-container networking. The IronFrame library that provides container-like features on Windows Server 2012R2 does not support container networking. IronFrame binds virtual container ports to the host.</li>
+</ul></li>
+<li><p>The following Windows technologies are not supported by PAS for Windows 2012R2:</p>
+
+<ul>
+<li>Active Directory Domain Services, i.e. joining Windows cells to an Active Directory domain.</li>
+<li>Integrated Windows Authentication. Instead, operators should deploy Active Directory Federation Services and the Pivotal SSO tile to enable OAuth-based authentication.</li>
+</ul></li>
+<li><p>You cannot push Docker or other OCI-compatible images to Windows cells.</p></li>
+</ul>
+
+<h2 id="known-issues"><a id='issues'></a>Known Issues</h2>
+
+<p>PAS for Windows 2012R2 has the following known issues:</p>
+
+<ul>
+<li><p>In the PAS for Windows 2012R2 tile <strong>Credentials</strong> tab, the <code>vcap</code> credentials that appear when you click <strong>VM Credentials</strong> &gt; <strong>Link to Credential</strong> do not apply to Windows cells, since they do not yet have a vcap user.</p></li>
+<li><p>Under <strong>VM Options</strong> &gt; <strong>Manage Administrator Password</strong> &gt; <strong>Set the password</strong>, setting the <code>Administrator</code> user password has the following issues:</p>
+
+<ul>
+<li>For Azure-hosted deployments: Setting the password directly does not yet work. All passwords for the user called <code>Administrator</code> will be randomized by default. Please use the following workarounds to access the VM directly:
+
+<ul>
+<li>Create a user in the Azure cloud management console.</li>
+<li>Use the <strong>Enable SSH</strong> feature.</li>
+</ul></li>
+<li>For GCP-hosted deployments: Setting the password directly does not yet work. Please use the following workarounds to access the VM:
+
+<ul>
+<li>Create a user in the GCP cloud management console.</li>
+<li>Use the <strong>Enable SSH</strong> feature.</li>
+<li>For AWS and vSphere deployments: You can set a password for the user called <code>Administrator</code>, but the password must be 8-14 characters and is limited to letters, numbers, and the <code>!</code> character, which is the only working special character.</li>
+<li>For all IaaSes, for stemcell versions 1200.5 and later, the password for the user called <code>Administrator</code> is randomized by default to provide additional security in production settings.</li>
+</ul></li>
+</ul></li>
+<li><p>The controls in the <strong>Advanced Features</strong> pane have no effect.</p></li>
+<li><p>In the <strong>Resource Config</strong> pane, setting VM disk sizes has the following limitations. See the <a href="/runtimes/windows/1-0/about-windows-stemcells.html#sizing">Root Disk Sizing</a> table for details:</p>
+
+<ul>
+<li>AWS: For stemcells earlier than 1200.9, setting disk size value has no effect. VM disks are 30 GB.</li>
+<li>GCP: Setting the disk size only works for values 50 GB or larger.</li>
+<li>vSphere: Setting disk size value has no effect. VM disks will match the disk size of the stemcell you create.</li>
+</ul></li>
+<li><p>When a PAS for Windows 2012R2 container shuts down, it may leave behind ghost connections and pending transactions that put the app in an inconsistent state. This is due to a known limitation of the IronFrame containerization framework. See the <a href="/runtimes/windows/1-0/understand-windows.html#container-shutdown">Container Shutdown</a> section for details.</p></li>
+</ul>
+
+        <div><a id='repo-link' href='http://github.com/pivotal-cf/docs-pcf-windows2012r2/tree/master/docs-content/index.html.md.erb'>Create a pull request or raise an issue on the source for this page in GitHub</a></div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+<div id="scrim"></div>
+
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+  <a href='https://pivotal.io/privacy-policy'>Privacy Policy</a> | 
+  <a href='https://pivotal.io/terms-of-use'>Terms of Use</a><br/>
+  <a href='/'>Pivotal Documentation</a>
+  &copy; 2018 <a href='https://pivotal.io'>Pivotal Software</a>, Inc. All Rights Reserved.
+</div>
+<div class="support">
+  Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+</div>
+
+  </footer>
+</div><!--end of container-->
+
+</body>
+</html>

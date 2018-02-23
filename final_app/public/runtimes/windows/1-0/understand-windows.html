@@ -1,0 +1,286 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Always force latest IE rendering engine or request Chrome Frame -->
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400italic,400,600' rel='stylesheet' type='text/css'>
+  <!-- Use title if it's in the page YAML frontmatter -->
+  <title>
+      Understanding Windows Cells |
+    Pivotal Docs
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/stylesheets/all.css" rel="stylesheet" media="screen, print" />
+  <link href="/stylesheets/print.css" rel="stylesheet" media="print" />
+  <link href='/images/favicon.ico' rel='shortcut icon'>
+
+  <script src="/javascripts/all.js"></script>
+  
+<script type="text/javascript">
+  if (window.location.host === 'docs.pivotal.io') {
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_setDomainName', '']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  }
+</script>
+
+<script type="text/javascript">
+  var blackList = ['acceptance'];
+
+  blackList.forEach(function(blackListedEnv) {
+    if (document.URL.indexOf(blackListedEnv) > -1 && blackListedEnv != "") {
+      $('head').append('<meta name="hashtag" content="PivotalMoment">');
+    }
+  });
+</script>
+
+<!-- CrazyEgg Tracking Script -->
+  <script type="text/javascript">
+  setTimeout(function(){var a=document.createElement("script");
+  var b=document.getElementsByTagName("script")[0];
+  a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0055/2990.js?"+Math.floor(new Date().getTime()/3600000);
+  a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+  </script>
+
+<!-- Munchkin Marketo Script -->
+<script type="text/javascript">
+  (function() {
+    var didInit = false;
+
+    function initMunchkin() {
+      if (didInit === false) {
+        didInit = true;
+        Munchkin.init('625-IUJ-009');
+      }
+    }
+
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = document.location.protocol + '//munchkin.marketo.net/munchkin.js';
+    s.onreadystatechange = function() {
+      if (this.readyState == 'complete' || this.readyState == 'loaded') {
+        initMunchkin();
+      }
+    };
+    s.onload = initMunchkin;
+    document.getElementsByTagName('head')[0].appendChild(s);
+  })();
+</script>
+
+</head>
+
+<body class="runtimes runtimes_windows runtimes_windows_1-0 runtimes_windows_1-0_understand-windows has-subnav">
+
+<div class="viewport">
+  <div class='wrap'>
+    <script type="text/javascript">
+      document.domain = "";
+    </script>
+
+      <header class="global-header header header-layout js-bar-links">
+    <a class="pivotal-logo" href="/">
+    </a>
+    <a href="/" class="global-header-title">
+      <span class="title-deemph">Pivotal</span> Documentation
+    </a>
+    <div class="btn-menu" data-behavior="MenuMobile"></div>
+    <div class="header-links">
+      <div class="header-item">
+        <a href=""></a>
+      </div>
+      <div class="header-item">
+        <a href="http://support.pivotal.io" target="_blank">Support</a>
+      </div>
+
+      <div class="header-item embedded-searchbar">
+          <form method="get" action="/search">
+            <input name="q" placeholder="Search PAS for Windows v1.0" class="search-box" />
+              <input type="hidden" name="product_name" value="PAS for Windows" />
+              <input type="hidden" name="product_version" value="1.0"/>
+          </form>
+      </div>
+      
+    </div>
+  </header>
+
+
+
+    <div class="container">
+
+      <!--googleoff: index-->
+      <div id="sub-nav" class="js-sidenav nav-container" role="navigation">
+  <a class="sidenav-title" data-behavior="SubMenuMobile">
+    Doc Index
+  </a>
+  <div class="nav-content">
+    <ul>
+
+      <li class="has_submenu">
+        <a href="/runtimes/windows/1-0/index.html">PAS for Windows</a>
+      </li>        
+    </ul>
+  </div>
+</div><!--end of sub-nav-->
+      <!--googleon: index-->
+
+      <main class="content content-layout" id="js-content" role="main">
+        <a id="top"></a>
+          <div class="local-header title-container">
+    <div class="local-header version-info">
+      LATEST VERSION: v1.0 - <a href="">CHANGELOG</a>
+    </div>
+    <div class="local-header local-title clearfix">
+      <img src="/images/cloud_rings.png">
+      <span class="local-header-title">PAS for Windows
+      </span>
+      <span class="local-header local-version header-dropdown">
+        <a class="local-header header-dropdown-link">v1.0</a>
+        <span class="local-header header-dropdown-content">
+          <ul>
+                <li>
+                    <a href="https://docs.pivotal.io/runtimes/windows/0-8/understand-windows.html">v0.8</a>
+                </li>
+          </ul>
+        </span>
+      </span>
+
+      <!-- search was here -->
+    </div>
+    <div class="local-header local-header-links">
+    </div>
+  </div>
+
+          <h1 class="title-container" >
+    Understanding Windows Cells
+  </h1>
+
+          <div id="js-quick-links" >
+            <div class="quick-links"><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#filesystem">Filesystem Isolation</a></li>
+<li><a href="#disk-usage">Disk Usage</a></li>
+<li><a href="#network-isolation">Network Isolation</a></li>
+<li><a href="#memory-usage">Memory Usage</a></li>
+<li><a href="#container-shutdown">Container Shutdown</a></li>
+</ul></div>
+          </div>
+        <div class="to-top" id="js-to-top">
+          <a href="#top" title="back to top"></a>
+        </div>
+        <p><strong></strong></p>
+
+<p>This topic provides a description of how Windows cells work in Pivotal Cloud Foundry (PCF). For more information about security, see the <a href="/runtimes/windows/1-0/windows-security.html">Understanding Stemcell Security</a> topic.</p>
+
+<h2 id="-overview"><a id='overview'></a> Overview</h2>
+
+<p>App instances in PCF run inside containers. <a href="https://docs.pivotal.io/pivotalcf/2-1/concepts/architecture/garden.html">Garden</a> is the API that creates and manages these containers, and Garden Windows implements Garden on Windows.</p>
+
+<p>By deploying the <a href="/runtimes/windows/1-0/deploy-windows.html">PAS for Windows 2012R2</a> tile, operators create a Windows <a href="https://docs.pivotal.io/pivotalcf/2-1/concepts/architecture/index.html#diego-cell">cell</a> from a <a href="https://bosh.io/docs/stemcell.html">stemcell</a> that contains the Windows Server 2012 operating system. Because Windows does not natively support Linux-style containers, Garden Windows uses an open-source library called IronFrame to implement containerization on Windows. IronFrame uses features of the Windows kernel to isolate resources that would otherwise be shared, creating containers comparable to those that exist on Linux.</p>
+
+<p>A Windows cell includes the following components:</p>
+
+<ul>
+<li>Garden Windows: Implements the <a href="https://docs.pivotal.io/pivotalcf/2-1/concepts/architecture/garden.html">Garden</a> API on Windows</li>
+<li>Containerizer: Creates and manages Windows containers, using the IronFrame library</li>
+<li><a href="https://docs.pivotal.io/pivotalcf/2-1/concepts/diego/diego-architecture.html#metron-agent">Metron Agent</a>: Forwards app logs, errors, and metrics to the <a href="https://docs.pivotal.io/pivotalcf/2-1/loggregator/architecture.html">Loggregator</a> system</li>
+<li><a href="https://bosh.io/docs/bosh-components.html#agent">BOSH Agent</a>: Executes instructions from the BOSH Director</li>
+<li><a href="https://docs.pivotal.io/pivotalcf/2-1/concepts/diego/diego-architecture.html#consul">Consul Client</a>: Registers the cell as a service in a Consul cluster</li>
+<li><a href="https://docs.pivotal.io/pivotalcf/2-1/concepts/diego/diego-architecture.html#rep">Cell Rep</a>: Runs and manages <a href="https://docs.pivotal.io/pivotalcf/2-1/concepts/diego/diego-auction.html#processes">Tasks and Long Running Processes</a></li>
+</ul>
+
+<p>The following diagram illustrates the architecture of a Windows cell:</p>
+
+<p><img src="images/windows-cell.png" alt="Windows cell" /></p>
+
+<p>Garden Windows achieves container isolation in the following ways:</p>
+
+<ul>
+<li><a href="#filesystem">Filesystem Isolation</a></li>
+<li><a href="#disk-usage">Disk Usage</a></li>
+<li><a href="#network-isolation">Network Isolation</a></li>
+<li><a href="#memory-usage">Memory Usage</a></li>
+</ul>
+
+<h2 id="-filesystem-isolation"><a id='filesystem'></a> Filesystem Isolation</h2>
+
+<p>Garden Windows creates a unique temporary user for each container, and uses <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa374872(v=vs.85).aspx">Access Control Lists</a> (ACLs) to render a &ldquo;containerized&rdquo; directory visible only to the user who owns the container. The temporary user can also read much of the host cell&rsquo;s filesystem, such as system DLLs and <code>C:\Program Files</code>. </p>
+
+<p class="note"><strong>Note</strong>: Because the temporary user who owns the container can view much of the host filesystem, operators should avoid placing sensitive or confidential information in system directories that would be accessible by standard users on a Windows workstation.</p> 
+
+<h2 id="-disk-usage"><a id='disk-usage'></a> Disk Usage</h2>
+
+<p>Garden Windows enforces disk usage limits with NTFS <a href="https://technet.microsoft.com/en-us/library/cc938945.aspx#XSLTsection128121120120">disk quotas</a>, which work on a per-user, per-volume basis. The disk quotas apply to the temporary user who owns the container, on the volume that contains the containerized directory, which is <code>C:\</code> by default. Because quotas are transparent to the user, the temporary user who owns the container can only see the disk resources available within the assigned quota.</p>
+
+<h2 id="-network-isolation"><a id='network-isolation'></a> Network Isolation</h2>
+
+<p>Apps launched inside a Garden Windows container bind directly to the external IP address of the cell. For apps that utilize the port mapping functions of the Garden API, Garden Windows maps internal container ports to external ports. </p>
+
+<h2 id="-memory-usage"><a id='memory-usage'></a> Memory Usage</h2>
+
+<p>Garden Windows uses <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms684161.aspx">job objects</a> to enforce limits on memory usage by an app inside a container. A job object is a Windows kernel object that enables the control of multiple processes as a single group. Garden Windows assigns the processes inside a container to a job object and sets an upper limit on memory utilization by this job object, which is enforced by the kernel. </p>
+
+<p>Additionally, an IronFrame component called the Guard helps enforce memory limits. The Guard polls for app memory usage and ensures that no app has mapped more memory than allowed. If an app exceeds its memory limit, the Guard kills the job object. If a process attempts to escape a job object, the Guard stops this behavior and kills the process if necessary.</p>
+
+<h2 id="-container-shutdown"><a id='container-shutdown'></a> Container Shutdown</h2>
+
+<p>When the Garden Windows server directs a PAS for Windows 2012R2 cell to shut down one of its containers, the cell destroys the container as follows:</p>
+
+<ol>
+<li><p>Runs the <code>TerminateProcess</code> kernel32 syscall recursively, to terminate container child processes and finally the parent process. </p></li>
+<li><p>Stops the container Guard process.</p></li>
+<li><p>Releases ports allocated to the container.</p></li>
+<li><p>Deletes firewall rules for NetOut.</p></li>
+<li><p>For mounted directories bound to the container:</p>
+
+<ul>
+<li>Deletes local symlinks.</li>
+<li>On the directory source VM, deletes access control lists (ACLs) for the container user.</li>
+</ul></li>
+<li><p>Deletes the container user disk quota and container directory on the cell.</p></li>
+<li><p>Deletes the container user account on the cell.</p></li>
+</ol>
+
+<p>Due to a known limitation of the IronFrame containerization framework, terminating processes with the <code>TerminateProcess</code> kernel32 syscall may leave behind ghost connections and pending transactions that put the app in an inconsistent state.  See the <a href="https://discuss.pivotal.io/hc/en-us/articles/115005092734">Knowledge Base</a> for more information on how .NET apps shut down on PCF Windows cells.</p>
+
+<p>Shutdown requests can come from <code>cf delete</code> or <code>cf scale</code> commands, or from the Diego system <a href="https://docs.pivotal.io/pivotalcf/concepts/diego/diego-auction.html">balancing apps</a>.</p>
+
+        <div><a id='repo-link' href='http://github.com/pivotal-cf/docs-pcf-windows2012r2/tree/master/docs-content/understand-windows.html.md.erb'>Create a pull request or raise an issue on the source for this page in GitHub</a></div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+<div id="scrim"></div>
+
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+  <a href='https://pivotal.io/privacy-policy'>Privacy Policy</a> | 
+  <a href='https://pivotal.io/terms-of-use'>Terms of Use</a><br/>
+  <a href='/'>Pivotal Documentation</a>
+  &copy; 2018 <a href='https://pivotal.io'>Pivotal Software</a>, Inc. All Rights Reserved.
+</div>
+<div class="support">
+  Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+</div>
+
+  </footer>
+</div><!--end of container-->
+
+</body>
+</html>

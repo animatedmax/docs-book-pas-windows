@@ -1,0 +1,6 @@
+output
+final_app
+.bundle
+Gemfile.lock
+final_app/*
+.DS_Store
