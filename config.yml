@@ -16,7 +16,7 @@ sections:
 
 - repository:
     name: pivotal-cf/docs-pcf-windows2012r2
-    ref: 'master'
+    ref: 'concourse-pipeline-155088790'
     at_path: 'docs-content'	 
   directory: runtimes/windows/1-0
   subnav_template: windows_subnav_1-0.erb
