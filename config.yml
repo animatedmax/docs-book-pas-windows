@@ -18,19 +18,19 @@ sections:
     name: pivotal-cf/docs-pcf-windows2012r2
     ref: 'concourse-pipeline-155088790'
     at_path: 'docs-content'
-  directory: runtimes/windows/2-1
-  subnav_template: windows_subnav_1-0.erb
+  directory: runtimes/windows/2-0
+  subnav_template: windows_subnav_2-0.erb
   product_info:
     use_local_header: true
-    latest_stable_version: "v1.0"
+    latest_stable_version: "v2.0"
     local_header_img: /images/cloud_rings.png
     local_header_title: PAS for Windows
-    search_placeholder: "Search PAS for Windows v1.0"
-    url_prefix: runtimes/windows/1-0
+    search_placeholder: "Search PAS for Windows v2.0"
+    url_prefix: runtimes/windows/2-0
     local_product_version: "1.0"
     local_header_links: []
     local_header_version_list:
-      - url_prefix: https://docs.pivotal.io/runtimes/windows/2-0
-        display_name: v2.0
+      - url_prefix: https://docs.pivotal.io/runtimes/windows/2-1
+        display_name: v2.1
 
 book_title: PAS for Windows
