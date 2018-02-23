@@ -15,8 +15,8 @@ elastic_search: true
 sections:
 
 - repository:
-    name: pivotal-cf/docs-pcf-windows2012r2
-    ref: 'concourse-pipeline-155088790'
+    name: pivotal-cf/docs-pcf-windows
+    ref: 'master'
     at_path: 'docs-content'
   directory: runtimes/windows/2-1
   subnav_template: windows_subnav_2-1.erb
