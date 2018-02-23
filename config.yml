@@ -17,8 +17,8 @@ sections:
 - repository:
     name: pivotal-cf/docs-pcf-windows2012r2
     ref: 'concourse-pipeline-155088790'
-    at_path: 'docs-content'	 
-  directory: runtimes/windows/1-0
+    at_path: 'docs-content'
+  directory: runtimes/windows/2-1
   subnav_template: windows_subnav_1-0.erb
   product_info:
     use_local_header: true
@@ -30,7 +30,7 @@ sections:
     local_product_version: "1.0"
     local_header_links: []
     local_header_version_list:
-      - url_prefix: https://docs.pivotal.io/runtimes/windows/0-8
-        display_name: v0.8
+      - url_prefix: https://docs.pivotal.io/runtimes/windows/2-0
+        display_name: v2.0
 
 book_title: PAS for Windows
